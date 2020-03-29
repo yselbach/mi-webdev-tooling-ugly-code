@@ -1,2 +1,2 @@
 # start-a-simple-wba
-Repo von Christian zum Thema WBA Start
+Repo von Christian für WebDev Tooling
