@@ -1,34 +1,34 @@
-/*leerzeichenViewmodeleerzeichenShowcase
+/* Viewmode Showcase
 
-ÄndertleerzeichendieleerzeichenAnordnungleerzeichenderleerzeichenShowcaseleerzeichenItems
-############################################################################leerzeichen*/
+Ändert die Anordnung der Showcase Items
+############################################################################ */
 
 
-varleerzeichenviewmodeShowcaseleerzeichen=leerzeichen{};
-viewmodeShowcase.activeModeleerzeichen=leerzeichenfalse;
-viewmodeShowcase.lastButtonleerzeichen=leerzeichenfalse;
+var viewmodeShowcase = {};
+viewmodeShowcase.activeMode = false;
+viewmodeShowcase.lastButton = false;
 
-document.addEventListener("DOMContentLoaded",leerzeichenfunction(event)leerzeichen{
+document.addEventListener("DOMContentLoaded", function(event) {
 
-leerzeichenleerzeichenleerzeichenleerzeichenvarleerzeichenactiveElementleerzeichen=leerzeichendocument.querySelector("#viewmodeSwitcherleerzeichen.is-active");
-leerzeichenleerzeichenleerzeichenleerzeichenviewmodeShowcase.lastButtonleerzeichen=leerzeichenactiveElement;
+    var activeElement = document.querySelector("#viewmodeSwitcher .is-active");
+    viewmodeShowcase.lastButton = activeElement;
 
-leerzeichenleerzeichenleerzeichenleerzeichendocument.querySelector("#viewmodeSwitcher").addEventListener("click",leerzeichenfunction(ev)leerzeichen{
-leerzeichenleerzeichenleerzeichenleerzeichenleerzeichenleerzeichenleerzeichenleerzeichenvarleerzeichenzielElementIdleerzeichen=leerzeichenev.target.dataset.element;
-leerzeichenleerzeichenleerzeichenleerzeichenleerzeichenleerzeichenleerzeichenleerzeichenvarleerzeichenviewmodeleerzeichen=leerzeichenev.target.dataset.viewmode;
-leerzeichenleerzeichenleerzeichenleerzeichenleerzeichenleerzeichenleerzeichenleerzeichenvarleerzeicheneleleerzeichen=leerzeichendocument.querySelector(zielElementId);
+    document.querySelector("#viewmodeSwitcher").addEventListener("click", function(ev) {
+        var zielElementId = ev.target.dataset.element;
+        var viewmode = ev.target.dataset.viewmode;
+        var ele = document.querySelector(zielElementId);
 
-leerzeichenleerzeichenleerzeichenleerzeichenleerzeichenleerzeichenleerzeichenleerzeichenifleerzeichen(viewmodeShowcase.activeMode)leerzeichen{
-leerzeichenleerzeichenleerzeichenleerzeichenleerzeichenleerzeichenleerzeichenleerzeichenleerzeichenleerzeichenleerzeichenleerzeichenele.classList.remove(viewmodeShowcase.activeMode);
-leerzeichenleerzeichenleerzeichenleerzeichenleerzeichenleerzeichenleerzeichenleerzeichen}
-leerzeichenleerzeichenleerzeichenleerzeichenleerzeichenleerzeichenleerzeichenleerzeichenele.classList.add(viewmode);
-leerzeichenleerzeichenleerzeichenleerzeichenleerzeichenleerzeichenleerzeichenleerzeichenviewmodeShowcase.activeModeleerzeichen=leerzeichenviewmode;
+        if (viewmodeShowcase.activeMode) {
+            ele.classList.remove(viewmodeShowcase.activeMode);
+        }
+        ele.classList.add(viewmode);
+        viewmodeShowcase.activeMode = viewmode;
 
-leerzeichenleerzeichenleerzeichenleerzeichenleerzeichenleerzeichenleerzeichenleerzeichenifleerzeichen(viewmodeShowcase.lastButton)leerzeichen{
-leerzeichenleerzeichenleerzeichenleerzeichenleerzeichenleerzeichenleerzeichenleerzeichenleerzeichenleerzeichenleerzeichenleerzeichenviewmodeShowcase.lastButton.classList.remove("is-active");
-leerzeichenleerzeichenleerzeichenleerzeichenleerzeichenleerzeichenleerzeichenleerzeichen}
-leerzeichenleerzeichenleerzeichenleerzeichenleerzeichenleerzeichenleerzeichenleerzeichenev.target.parentNode.classList.add("is-active");
-leerzeichenleerzeichenleerzeichenleerzeichenleerzeichenleerzeichenleerzeichenleerzeichenviewmodeShowcase.lastButtonleerzeichen=leerzeichenev.target.parentNode;
-leerzeichenleerzeichenleerzeichenleerzeichen});
+        if (viewmodeShowcase.lastButton) {
+            viewmodeShowcase.lastButton.classList.remove("is-active");
+        }
+        ev.target.parentNode.classList.add("is-active");
+        viewmodeShowcase.lastButton = ev.target.parentNode;
+    });
 
 });
